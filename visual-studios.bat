@@ -9,7 +9,7 @@ if %errorlevel% neq 0 (
 )
 
 :: Activate winrar
-set /p lol=Type Y to activate winrar, anything else to skip: 
+set /p lol=Type Y to activate WinRAR, anything else to skip: 
 if /i "%lol%"=="y" (
     echo.
     curl -# -o "rarreg.key" "https://raw.githubusercontent.com/mitonthegit/random/refs/heads/main/rarreg.key"
