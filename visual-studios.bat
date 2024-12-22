@@ -7,7 +7,7 @@ cd %tmp%
 :: Check admin, WSL has to be run as non admin so it runs before elevation.
 openfiles >nul 2>nul
 if %errorlevel% neq 0 (
-    set /p wsl=Type Y to install WSL, anything else to skip:
+    set /p wsl=Type Y to install WSL, anything else to skip: 
     if /i "!wsl!"=="y" ( 
         if not exist "install-wsl.bat" (
             echo.
