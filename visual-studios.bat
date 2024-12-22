@@ -171,10 +171,18 @@ if exist "ooshutup10.exe" (
     del /f "ooshutup10.exe"
 )
 
+:: Choco installation
+set /p choco=Type Y to install Choco, needed for packages and included in Ameliorated: 
+if /i "!choco!"=="y" (
+        echo.
+        powershell -c "Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))"
+        echo.
+)
+
 :: Install packages
 set /p skull=Type Y to install packages, anything else to skip: 
 if /i "%skull%"=="y" (
-    set "packages=wireshark obs googlechrome firefox mpv hxd 7zip winrar vscode discord discord-canary docker-desktop sublimetext3 signal gitkraken flameshot imhex spotify systeminformer-nightlybuilds resourcehacker.portable cheatengine steam teamspeak vmwareworkstation vlc tutanota mullvad obsidian notion tailscale python3 qbittorrent librewolf burp-suite-free-edition"
+    set "packages=git wireshark obs googlechrome firefox mpv hxd 7zip winrar vscode discord discord-canary docker-desktop sublimetext3 signal gitkraken flameshot imhex spotify systeminformer-nightlybuilds resourcehacker.portable cheatengine steam teamspeak vmwareworkstation vlc tutanota mullvad obsidian notion tailscale python3 qbittorrent librewolf burp-suite-free-edition"
     choco install !packages! -y
 )
 color 0a
